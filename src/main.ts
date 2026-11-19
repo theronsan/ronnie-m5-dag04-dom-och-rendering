@@ -42,6 +42,11 @@ const p = document.createElement('p')
 p.textContent = 'Dagens tips: prova en kardemummabulle.'
 document.querySelector('#hero')?.append(p)
 
+// Lägger till och tar bort klassen dagens på #hero
+const hero = document.querySelector('#hero')
+hero?.classList.add('dagens')
+hero?.classList.remove('dagens')
+
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
