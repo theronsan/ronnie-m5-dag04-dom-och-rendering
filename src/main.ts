@@ -60,3 +60,26 @@ p.textContent = '<img src="x" onerror="console.log(\'Attack!\')">'
 // 9. Dagens rätt = den billigaste lunchen. Använd filter och billigast (från meny.js)
 //    och markeraDagensRatt.
 // TODO
+
+// Hämtar #meny-lista
+const menyLista = document.querySelector<HTMLElement>('#meny-lista')
+// Om #meny-lista finns körs funktionen
+if (menyLista) {
+    visaMeny(menyLista, meny)
+
+    // Dagens rätt
+    // Går igenom alla rätter och behåller alla som har kategori lunch
+    const luncher = meny.filter((ratt) => ratt.kategori === 'lunch')
+    // Tar fram den rätt som har det biligaste priset från lunch-listan
+    const dagensRatt = billigast(luncher)
+    // Markerar en lunch som dagens rätt
+    if (dagensRatt) {
+        markeraDagensRatt(menyLista, dagensRatt.id)
+    }
+}
+// Hämtar #meny-rubrik
+const menyRubrik = document.querySelector<HTMLElement>('#meny-rubrik')
+// Om #meny-rubrik finns körs funktionen
+if (menyRubrik) {
+    uppdateraRubrik(menyRubrik, meny.length)
+}
