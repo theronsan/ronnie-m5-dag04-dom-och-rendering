@@ -16,20 +16,31 @@ import { billigast } from './meny'
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
 // TODO
+
+// Hämtar sidans h1 och skriver ut dess textinnehåll
 const huvudrubriken = document.querySelector<HTMLElement>('h1')
 console.log(huvudrubriken?.textContent)
 
+// Hämtar #hero-rubrik
 const heroRubrik = document.querySelector<HTMLElement>('#hero-rubrik')
+// Om #hero-rubrik finns ändrar vi dess textinnehåll till Välkommen in!
 if (heroRubrik) {
     heroRubrik.textContent = 'Välkommen in!'
 }
 
+// Hämtar alla länkar i menyn
 const navLinks = document.querySelectorAll<HTMLAnchorElement>('nav a')
+// Om det finns länkar loopar vi igenom alla och skriver ut varje länks href och textinnehåll
 if (navLinks) {
     for (const navLink of navLinks) {
         console.log(navLink.href, navLink.textContent)
     }
 }
+
+// Skapar ett nytt textstycke och lägger det sist i #hero
+const p = document.createElement('p')
+p.textContent = 'Dagens tips: prova en kardemummabulle.'
+document.querySelector('#hero')?.append(p)
 
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
