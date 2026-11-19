@@ -65,7 +65,10 @@ p.textContent = '<img src="x" onerror="console.log(\'Attack!\')">'
 const menyLista = document.querySelector<HTMLElement>('#meny-lista')
 // Om #meny-lista finns körs funktionen
 if (menyLista) {
+    // Visar menyn
     visaMeny(menyLista, meny)
+    // temporär för att testa tomt-läget
+    //visaMeny(menyLista, [])
 
     // Dagens rätt
     // Går igenom alla rätter och behåller alla som har kategori lunch

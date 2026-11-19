@@ -41,7 +41,8 @@ export function visaMeny(container: HTMLElement, ratter: Ratt[]): void {
     if (ratter.length === 0) {
         const tom = document.createElement('p')
         tom.className = 'tom'
-        tom.textContent = 'Inga rätter hittades'
+        tom.textContent =
+            'Kära gäst, antingen har alla våra rätter blivit borttagna från databasen eller så har vi sålt slut på allting idag. Om du är i krokarna kan du komma förbi ändå – vi har alltid nybryggt kaffe oavsett. Annars är du alltid välkommen tillbaka imorgon – då har vi fyllt både databasen och faten med nylagade rätter och nybakade bakverk.'
         container.append(tom)
         return
     }
