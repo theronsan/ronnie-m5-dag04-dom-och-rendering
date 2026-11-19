@@ -1,9 +1,9 @@
 // Dag 4: DOM. Kör npm run dev och titta i Console (F12).
 // querySelector kan ge null om elementet saknas. Hantera det med if eller ?. (TypeScript kräver det).
 // Tips: document.querySelector<HTMLElement>("#id") säger vilken sorts element du får.
-import { meny } from "./data";
-import { visaMeny, uppdateraRubrik, markeraDagensRatt } from "./ui";
-import { billigast } from "./meny";
+import { meny } from './data'
+import { visaMeny, uppdateraRubrik, markeraDagensRatt } from './ui'
+import { billigast } from './meny'
 
 // DEL 1: utforska DOM:en ----------------------------------------------
 // 1. Hämta h1 med document.querySelector("h1") och skriv ut dess textContent.
@@ -16,7 +16,20 @@ import { billigast } from "./meny";
 // 6. Säkerhetsförsök: sätt p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
 //    Vad händer i Console? Byt sedan till p.textContent med samma text. Vad händer nu?
 // TODO
+const huvudrubriken = document.querySelector<HTMLElement>('h1')
+console.log(huvudrubriken?.textContent)
 
+const heroRubrik = document.querySelector<HTMLElement>('#hero-rubrik')
+if (heroRubrik) {
+    heroRubrik.textContent = 'Välkommen in!'
+}
+
+const navLinks = document.querySelectorAll<HTMLAnchorElement>('nav a')
+if (navLinks) {
+    for (const navLink of navLinks) {
+        console.log(navLink.href, navLink.textContent)
+    }
+}
 
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
