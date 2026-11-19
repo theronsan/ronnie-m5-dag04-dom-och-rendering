@@ -14,7 +14,7 @@ import type { Ratt } from './typer'
 export function skapaRattKort(ratt: Ratt): HTMLElement {
     // TODO
     const kort = document.createElement('article')
-    kort.dataset.id = '1'
+    kort.dataset.id = String(ratt.id)
     const bild = document.createElement('img')
     bild.src = ratt.bild ?? ''
     bild.alt = `Illustration av ${ratt.namn}`
@@ -53,10 +53,24 @@ export function visaMeny(container: HTMLElement, ratter: Ratt[]): void {
 // 3. Sätt rubrikens text: "Meny (8 rätter)". Ett enda: "Meny (1 rätt)".
 export function uppdateraRubrik(element: HTMLElement, antal: number): void {
     // TODO
+    if (antal === 1) {
+        element.textContent = `Meny (${antal} rätt)`
+    } else {
+        element.textContent = `Meny (${antal} rätter)`
+    }
 }
 
 // 4. Markera EN rätt som dagens rätt: klassen "dagens" ska finnas på kortet med rätt
 //    data-id, och inte på något annat kort. Anropas igen = markeringen flyttas.
 export function markeraDagensRatt(container: HTMLElement, id: number): void {
     // TODO
+
+    const dagensRatt = container.querySelectorAll('article')
+    for (const dagens of dagensRatt) {
+        if (Number(dagens.dataset.id) === id) {
+            dagens.classList.toggle('dagens', true)
+        } else {
+            dagens.classList.toggle('dagens', false)
+        }
+    }
 }
