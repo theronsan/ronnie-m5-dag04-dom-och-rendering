@@ -47,6 +47,13 @@ const hero = document.querySelector('#hero')
 hero?.classList.add('dagens')
 hero?.classList.remove('dagens')
 
+// Säkerhetsförsök
+//p.innerHTML = '<img src="x" onerror="console.log(\'Attack!\')">'
+p.textContent = '<img src="x" onerror="console.log(\'Attack!\')">'
+
+// Man ska aldrig sätta innerHTML till en text som en användare eller API har skrivit
+// eftersom det öppnar upp för att skadlig kod kan köras på sajten.
+
 // DEL 2: koppla ihop med funktionerna i ui.js ----------------------------
 // 7. Hämta #meny-lista och #meny-rubrik.
 // 8. Anropa visaMeny med menyn, och uppdateraRubrik med antalet rätter.
